@@ -1,0 +1,5 @@
+简单的WEB MVC项目框架，搭建一个最简单的WEB MVC项目
+
+项目框架使用：
+	1.WEB框架-springmvc
+	2.持久层-mybatis
