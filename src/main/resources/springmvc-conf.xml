@@ -2,6 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--HandlerMapping-->
+    <!--主要作用：请求处理映射器-->
+    <!--辅助作用：可以添加全局拦截器-->
 
+    <!---->
 
 </beans>
