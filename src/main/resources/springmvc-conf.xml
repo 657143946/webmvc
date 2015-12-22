@@ -5,7 +5,45 @@
     <!--HandlerMapping-->
     <!--主要作用：请求处理映射器-->
     <!--辅助作用：可以添加全局拦截器-->
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="interceptors">
+            <!-- 添加全局拦截器 -->
+            <list>
+                <!-- 用来执行Pre注解拦截器 -->
+            </list>
+        </property>
+    </bean>
+    <!--HandlerAdapter-->
+    <!--主要作用：适配返回数据格式，比如JSON，HTML页面等-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!--返回HTML页面-->
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>
+                                text/html;charset=UTF-8
+                            </value>
+                        </list>
+                    </property>
+                </bean>
+                <!--返回json数据-->
+                <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <!--ViewResolver-->
+    <!--页面渲染器，可以配置使用多种页面渲染器,最好是统一用一个模板引擎，方便维护-->
+    <!-- 使用beetl渲染器 -->
+    <bean id="viewResolver" class="org.beetl.ext.spring.BeetlSpringViewResolver">
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+    </bean>
+    <!-- beetl配置 -->
+    <bean id="beetlConfig" class="org.beetl.ext.spring.BeetlGroupUtilConfiguration" init-method="init">
+        <property name="root" value="/WEB-INF/html/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
 
-    <!---->
 
 </beans>
