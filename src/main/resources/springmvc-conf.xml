@@ -69,7 +69,7 @@
     <context:property-placeholder location="classpath:properties/*.properties"/>
 
     <!-- 用来手动获取spring容器中的组件 -->
-    <!--<bean id="contextUtils" class="me.leemo.springmvc.utils.SpringContext" />-->
+    <bean id="contextUtils" class="me.leemo.springmvc.utils.SpringContext" />
 
 
 </beans>
