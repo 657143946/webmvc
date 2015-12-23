@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * Created by ChrisLee on 15-5-24.
+ * Created by Leemo on 15-12-22.
  * spring上下文
  */
 public class SpringContext implements ApplicationContextAware {
