@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * Created by ChrisLee on 15-4-30.
+ * Created by Leemo on 15-12-23.
  * 拦截器接口
  */
 public interface InterceptorInterface {
