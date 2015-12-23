@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by ChrisLee on 15-5-24.
+ * Created by Leemo on 15-12-22.
  * Response 自定义工具类
  */
 public class ResponseUtils {
