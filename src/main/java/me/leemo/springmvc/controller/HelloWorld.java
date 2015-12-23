@@ -26,10 +26,10 @@ public class HelloWorld {
 
     @RequestMapping("hello.json")
     @ResponseBody
-    public Map<String, String> json(
+    public ControllerModel json(
             @RequestParam(defaultValue = "null") String value
     ){
-        Map<String, String> model = new HashMap<String, String>();
+        ControllerModel model = new ControllerModel();
         model.put("value", value);
         return model;
     }
