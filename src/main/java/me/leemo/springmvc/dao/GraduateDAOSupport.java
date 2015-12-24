@@ -1,5 +1,6 @@
 package me.leemo.springmvc.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
@@ -12,5 +13,9 @@ public class GraduateDAOSupport extends HibernateDaoSupport {
     @Resource(name = "graduate_sessionFactory")
     public void setSuperSessionFactory(SessionFactory sessionFactory){
         super.setSessionFactory(sessionFactory);
+    }
+
+    public Session getSession(){
+        return this.getSessionFactory().getCurrentSession();
     }
 }
