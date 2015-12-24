@@ -18,6 +18,7 @@
             <!-- 添加全局拦截器 -->
             <list>
                 <!-- 用来执行Pre注解拦截器 -->
+                <bean class="me.leemo.springmvc.interceptor.InterceptorHandler"/>
             </list>
         </property>
     </bean>
