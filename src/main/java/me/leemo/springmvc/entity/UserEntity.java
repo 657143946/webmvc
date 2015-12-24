@@ -9,7 +9,7 @@ import java.sql.Date;
  * Created by Leemo on 15-12-24
  */
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class UserEntity {
 
     /**
@@ -25,7 +25,7 @@ public class UserEntity {
      * 创建时间，默认当前时间
      */
     @Column(name = "create_time", nullable = true, updatable = false)
-    private Date createTime=new Date(System.currentTimeMillis());
+    private Date createTime = new Date(System.currentTimeMillis());
 
 
     /**
@@ -39,4 +39,36 @@ public class UserEntity {
      */
     @Column(name = "password", nullable = false)
     private String password;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
