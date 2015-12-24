@@ -19,7 +19,7 @@ public class UserEntity {
     @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(generator = "paymentableGenerator")
     @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
-    private int id;
+    private String id;
 
     /**
      * 创建时间，默认当前时间
@@ -40,11 +40,11 @@ public class UserEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
