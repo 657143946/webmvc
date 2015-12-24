@@ -1,11 +1,14 @@
 package me.leemo.springmvc.controller;
 
+import me.leemo.springmvc.dao.UserDao;
+import me.leemo.springmvc.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +44,23 @@ public class HelloWorld {
 
     @RequestMapping("error.json")
     @ResponseBody
-    public ModelAndView errorJson(){
+    public ControllerModel errorJson(){
         throw new RuntimeException();
+    }
+
+
+    @Resource
+    private UserDao userDao;
+
+    @RequestMapping("saveUser.json")
+    @ResponseBody
+    public ControllerModel saveUser(){
+        ControllerModel model = new ControllerModel();
+
+        UserEntity user = new UserEntity();
+        userDao.save(user);
+
+        model.put("user", user);
+        return model;
     }
 }
