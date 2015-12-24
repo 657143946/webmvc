@@ -18,6 +18,8 @@
         <param-value>
             <!--基本配置-->
             classpath*:/springmvc-conf.xml
+            <!--数据库配置-->
+            classpath*:/database-conf.xml
         </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
