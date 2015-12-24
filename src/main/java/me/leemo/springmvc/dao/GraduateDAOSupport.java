@@ -16,6 +16,6 @@ public class GraduateDAOSupport extends HibernateDaoSupport {
     }
 
     public Session getSession() {
-        return this.getSessionFactory().getCurrentSession();
+        return this.getSessionFactory().openSession();
     }
 }
