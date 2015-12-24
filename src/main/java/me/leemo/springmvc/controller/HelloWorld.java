@@ -2,6 +2,7 @@ package me.leemo.springmvc.controller;
 
 import me.leemo.springmvc.dao.UserDao;
 import me.leemo.springmvc.entity.UserEntity;
+import me.leemo.springmvc.utils.Encryption;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,12 +56,19 @@ public class HelloWorld {
 
     @RequestMapping("saveUser.json")
     @ResponseBody
-    public ControllerModel saveUser() {
+    public ControllerModel saveUser(
+            @RequestParam(name = "name", required = true) String name,
+            @RequestParam(name = "password", required = true) String password
+    ) throws Exception {
         ControllerModel model = new ControllerModel();
-        UserEntity user = new UserEntity();
-        userDao.save(user);
 
+        UserEntity user = new UserEntity();
+        user.setUser(name);
+        user.setPassword(Encryption.md5(password));
+        userDao.save(user);
         model.put("user", user);
+
+        System.out.println("加密是否一致：" + Encryption.md5(password).equals(user.getPassword()));
         return model;
     }
 }
