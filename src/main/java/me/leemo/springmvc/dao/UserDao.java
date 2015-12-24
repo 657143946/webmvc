@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserDao extends GraduateDAOSupport {
-    public void save(UserEntity user) {
+    public void save(UserEntity user) throws Exception {
         Session session = this.getSession();
         Transaction tc = (Transaction) session.beginTransaction();
         session.save(user);
@@ -19,6 +19,9 @@ public class UserDao extends GraduateDAOSupport {
         } catch (Exception e) {
             e.printStackTrace();
             session.close();
+            System.out.println();
+            Exception wrapE = new Exception(e.getCause().getMessage(), e);
+            throw wrapE;
         }
     }
 }
