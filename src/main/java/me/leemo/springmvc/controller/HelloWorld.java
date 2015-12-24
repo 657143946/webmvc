@@ -21,7 +21,7 @@ public class HelloWorld {
     @RequestMapping("hello.page")
     public ModelAndView page(
             @RequestParam(defaultValue = "null") String value
-    ){
+    ) {
         ModelAndView mv = new ModelAndView("hello.html");
         mv.addObject("value", value);
         return mv;
@@ -31,20 +31,20 @@ public class HelloWorld {
     @ResponseBody
     public ControllerModel json(
             @RequestParam(defaultValue = "null") String value
-    ){
+    ) {
         ControllerModel model = new ControllerModel();
         model.put("value", value);
         return model;
     }
 
     @RequestMapping("error.page")
-    public ModelAndView errorPage(){
+    public ModelAndView errorPage() {
         throw new RuntimeException();
     }
 
     @RequestMapping("error.json")
     @ResponseBody
-    public ControllerModel errorJson(){
+    public ControllerModel errorJson() {
         throw new RuntimeException();
     }
 
@@ -54,9 +54,8 @@ public class HelloWorld {
 
     @RequestMapping("saveUser.json")
     @ResponseBody
-    public ControllerModel saveUser(){
+    public ControllerModel saveUser() {
         ControllerModel model = new ControllerModel();
-
         UserEntity user = new UserEntity();
         userDao.save(user);
 
