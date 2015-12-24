@@ -11,11 +11,11 @@ import javax.annotation.Resource;
  */
 public class GraduateDAOSupport extends HibernateDaoSupport {
     @Resource(name = "graduate_sessionFactory")
-    public void setSuperSessionFactory(SessionFactory sessionFactory){
+    public void setSuperSessionFactory(SessionFactory sessionFactory) {
         super.setSessionFactory(sessionFactory);
     }
 
-    public Session getSession(){
+    public Session getSession() {
         return this.getSessionFactory().getCurrentSession();
     }
 }
